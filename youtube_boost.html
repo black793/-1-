@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Subscribers Boost - النسخة المحسنة</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .main-container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            padding: 30px;
+        }
+        .card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .card-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 15px 15px 0 0 !important;
+            padding: 20px;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            border-radius: 10px;
+            padding: 12px 25px;
+            font-weight: bold;
+        }
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+            transform: translateY(-2px);
+        }
+        .btn-success {
+            background: linear-gradient(135deg, #56ab2f 0%, #a8e6cf 100%);
+            border: none;
+            border-radius: 10px;
+            padding: 12px 25px;
+            font-weight: bold;
+        }
+        .btn-success:hover {
+            background: linear-gradient(135deg, #4a9a1f 0%, #98d6bf 100%);
+            transform: translateY(-2px);
+        }
+        .stat-card {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .stat-card.success {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+        }
+        .stat-card.warning {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+        }
+        .form-control {
+            border-radius: 10px;
+            border: 2px solid #e9ecef;
+            padding: 12px 15px;
+        }
+        .form-control:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+        }
+        .form-control.is-valid {
+            border-color: #28a745;
+        }
+        .form-control.is-invalid {
+            border-color: #dc3545;
+        }
+        .alert {
+            border-radius: 10px;
+            border: none;
+        }
+        .nav-tabs .nav-link {
+            border-radius: 10px 10px 0 0;
+            border: none;
+            color: #667eea;
+        }
+        .nav-tabs .nav-link.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        .info-box {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+        .progress {
+            height: 25px;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.3);
+        }
+        .progress-bar {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="main-container">
+            <!-- Header -->
+            <div class="text-center mb-4">
+                <h1 class="display-4 text-primary mb-3">
+                    <i class="fab fa-youtube me-3"></i>
+                    YouTube Subscribers Boost
+                </h1>
+                <p class="lead text-muted">النسخة المحسنة - مع إدارة الحسابات والبروكسيات</p>
+            </div>
+
+            <!-- Statistics Cards -->
+            <div class="row mb-4">
+                <div class="col-md-3">
+                    <div class="stat-card success">
+                        <h3 class="mb-2" id="total-boosts">0</h3>
+                        <p class="mb-0">إجمالي العمليات</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-card success">
+                        <h3 class="mb-2" id="completed-boosts">0</h3>
+                        <p class="mb-0">عمليات مكتملة</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-card warning">
+                        <h3 class="mb-2" id="pending-boosts">0</h3>
+                        <p class="mb-0">عمليات معلقة</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-card success">
+                        <h3 class="mb-2" id="total-subscribers">0</h3>
+                        <p class="mb-0">إجمالي المشتركين</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation Tabs -->
+            <ul class="nav nav-tabs mb-4" id="mainTabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="channels-tab" data-bs-toggle="tab" data-bs-target="#channels" type="button" role="tab">
+                        <i class="fas fa-list me-2"></i>القنوات
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="accounts-tab" data-bs-toggle="tab" data-bs-target="#accounts" type="button" role="tab">
+                        <i class="fas fa-users me-2"></i>الحسابات
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="proxies-tab" data-bs-toggle="tab" data-bs-target="#proxies" type="button" role="tab">
+                        <i class="fas fa-globe me-2"></i>البروكسيات
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="boost-tab" data-bs-toggle="tab" data-bs-target="#boost" type="button" role="tab">
+                        <i class="fas fa-rocket me-2"></i>التزويد
+                    </button>
+                </li>
+            </ul>
+
+            <!-- Tab Content -->
+            <div class="tab-content" id="mainTabsContent">
+                <!-- Channels Tab -->
+                <div class="tab-pane fade show active" id="channels" role="tabpanel">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5 class="mb-0">
+                                        <i class="fas fa-plus-circle me-2"></i>
+                                        إضافة قناة جديدة
+                                    </h5>
+                                </div>
+                                <div class="card-body">
+                                    <form id="add-channel-form">
+                                        <div class="mb-3">
+                                            <label for="channel-id" class="form-label">معرف القناة</label>
+                                            <input type="text" class="form-control" id="channel-id" 
+                                                   placeholder="UCxxxxxxxxxxxxxxxxxxxxxx" required>
+                                            <div class="form-text">أدخل معرف القناة من YouTube</div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="channel-name" class="form-label">اسم القناة (اختياري)</label>
+                                            <input type="text" class="form-control" id="channel-name" 
+                                                   placeholder="اسم القناة">
+                                        </div>
+                                        <button type="submit" class="btn btn-primary w-100">
+                                            <i class="fas fa-plus me-2"></i>إضافة القناة
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card">
+                                <div class="card-header d-flex justify-content-between align-items-center">
+                                    <h5 class="mb-0">
+                                        <i class="fas fa-list me-2"></i>
+                                        القنوات المضافة
+                                    </h5>
+                                    <span class="badge bg-light text-dark" id="channels-count">0 قناة</span>
+                                </div>
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>اسم القناة</th>
+                                                    <th>المعرف</th>
+                                                    <th>المشتركين الحاليين</th>
+                                                    <th>الحالة</th>
+                                                    <th>الإجراءات</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="channels-table">
+                                                <tr>
+                                                    <td colspan="5" class="text-center text-muted">
+                                                        <i class="fas fa-info-circle me-2"></i>
+                                                        لا توجد قنوات مضافة بعد
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Accounts Tab -->
+                <div class="tab-pane fade" id="accounts" role="tabpanel">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5 class="mb-0">
+                                        <i class="fas fa-user-plus me-2"></i>
+                                        إضافة حسابات Gmail
+                                    </h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="info-box">
+                                        <i class="fas fa-info-circle me-2"></i>
+                                        <strong>تنسيق الحسابات:</strong><br>
+                                        email@gmail.com:password
+                                    </div>
+                                    <form id="add-accounts-form">
+                                        <div class="mb-3">
+                                            <label for="accounts-text" class="form-label">الحسابات</label>
+                                            <textarea class="form-control" id="accounts-text" rows="8" 
+                                                      placeholder="email1@gmail.com:password1&#10;email2@gmail.com:password2&#10;email3@gmail.com:password3"></textarea>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary w-100">
+                                            <i class="fas fa-plus me-2"></i>إضافة الحسابات
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-header d-flex justify-content-between align-items-center">
+                                    <h5 class="mb-0">
+                                        <i class="fas fa-users me-2"></i>
+                                        الحسابات المضافة
+                                    </h5>
+                                    <span class="badge bg-light text-dark" id="accounts-count">0 حساب</span>
+                                </div>
+                                <div class="card-body">
+                                    <div class="table-responsive" style="max-height: 400px;">
+                                        <table class="table table-sm">
+                                            <thead>
+                                                <tr>
+                                                    <th>البريد الإلكتروني</th>
+                                                    <th>الحالة</th>
+                                                    <th>الإجراءات</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="accounts-table">
+                                                <tr>
+                                                    <td colspan="3" class="text-center text-muted">
+                                                        <i class="fas fa-info-circle me-2"></i>
+                                                        لا توجد حسابات مضافة بعد
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proxies Tab -->
+                <div class="tab-pane fade" id="proxies" role="tabpanel">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5 class="mb-0">
+                                        <i class="fas fa-globe me-2"></i>
+                                        إضافة البروكسيات
+                                    </h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="info-box">
+                                        <i class="fas fa-info-circle me-2"></i>
+                                        <strong>تنسيق البروكسيات:</strong><br>
+                                        ip:port أو ip:port:username:password
+                                    </div>
+                                    <form id="add-proxies-form">
+                                        <div class="mb-3">
+                                            <label for="proxies-text" class="form-label">البروكسيات</label>
+                                            <textarea class="form-control" id="proxies-text" rows="8" 
+                                                      placeholder="192.168.1.1:8080&#10;192.168.1.2:8080:user:pass&#10;192.168.1.3:3128"></textarea>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary w-100 mb-2">
+                                            <i class="fas fa-plus me-2"></i>إضافة البروكسيات
+                                        </button>
+                                        <button type="button" class="btn btn-warning w-100" onclick="testProxies()">
+                                            <i class="fas fa-vial me-2"></i>اختبار البروكسيات
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-header d-flex justify-content-between align-items-center">
+                                    <h5 class="mb-0">
+                                        <i class="fas fa-globe me-2"></i>
+                                        البروكسيات المضافة
+                                    </h5>
+                                    <span class="badge bg-light text-dark" id="proxies-count">0 بروكسي</span>
+                                </div>
+                                <div class="card-body">
+                                    <div class="table-responsive" style="max-height: 400px;">
+                                        <table class="table table-sm">
+                                            <thead>
+                                                <tr>
+                                                    <th>البروكسي</th>
+                                                    <th>الحالة</th>
+                                                    <th>الإجراءات</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="proxies-table">
+                                                <tr>
+                                                    <td colspan="3" class="text-center text-muted">
+                                                        <i class="fas fa-info-circle me-2"></i>
+                                                        لا توجد بروكسيات مضافة بعد
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Boost Tab -->
+                <div class="tab-pane fade" id="boost" role="tabpanel">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5 class="mb-0">
+                                        <i class="fas fa-rocket me-2"></i>
+                                        بدء عملية التزويد
+                                    </h5>
+                                </div>
+                                <div class="card-body">
+                                    <form id="start-boost-form">
+                                        <div class="mb-3">
+                                            <label for="boost-channel-id" class="form-label">اختر القناة</label>
+                                            <select class="form-control" id="boost-channel-id" required>
+                                                <option value="">اختر القناة</option>
+                                            </select>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="total-subscribers" class="form-label">عدد المشتركين المراد إضافتهم</label>
+                                            <input type="number" class="form-control" id="total-subscribers" 
+                                                   min="500" max="10000" placeholder="500" required>
+                                            <div class="form-text">الحد الأدنى: 500 مشترك | الحد الأقصى: 10,000 مشترك</div>
+                                            <div class="invalid-feedback">
+                                                يرجى إدخال رقم بين 500 و 10,000
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="boost-speed" class="form-label">سرعة التزويد</label>
+                                            <select class="form-control" id="boost-speed">
+                                                <option value="slow">بطيئة (آمنة)</option>
+                                                <option value="medium" selected>متوسطة</option>
+                                                <option value="fast">سريعة</option>
+                                            </select>
+                                        </div>
+                                        <div class="mb-3 form-check">
+                                            <input type="checkbox" class="form-check-input" id="use-proxy" checked>
+                                            <label class="form-check-label" for="use-proxy">استخدام البروكسي</label>
+                                        </div>
+                                        <div class="mb-3 form-check">
+                                            <input type="checkbox" class="form-check-input" id="use-accounts" checked>
+                                            <label class="form-check-label" for="use-accounts">استخدام الحسابات</label>
+                                        </div>
+                                        <button type="submit" class="btn btn-success w-100">
+                                            <i class="fas fa-rocket me-2"></i>بدء التزويد
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5 class="mb-0">
+                                        <i class="fas fa-chart-line me-2"></i>
+                                        تقدم العمليات
+                                    </h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="progress mb-3">
+                                        <div class="progress-bar" id="progress-bar" role="progressbar" 
+                                             style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                                            0%
+                                        </div>
+                                    </div>
+                                    <div class="row text-center">
+                                        <div class="col-4">
+                                            <h5 id="current-subscribers">0</h5>
+                                            <small>المشتركين الحاليين</small>
+                                        </div>
+                                        <div class="col-4">
+                                            <h5 id="target-subscribers">0</h5>
+                                            <small>الهدف</small>
+                                        </div>
+                                        <div class="col-4">
+                                            <h5 id="added-subscribers">0</h5>
+                                            <small>المضافين</small>
+                                        </div>
+                                    </div>
+                                    <div class="mt-3">
+                                        <small class="text-muted" id="progress-text">لا توجد عمليات جارية</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        // Global variables
+        let channels = JSON.parse(localStorage.getItem('youtube_channels') || '[]');
+        let accounts = JSON.parse(localStorage.getItem('youtube_accounts') || '[]');
+        let proxies = JSON.parse(localStorage.getItem('youtube_proxies') || '[]');
+        let history = JSON.parse(localStorage.getItem('youtube_history') || '[]');
+        let stats = {
+            total_boosts: 0,
+            completed_boosts: 0,
+            pending_boosts: 0,
+            total_subscribers_boosted: 0
+        };
+        let currentBoost = null;
+        let boostInterval = null;
+
+        // Initialize the dashboard
+        $(document).ready(function() {
+            loadData();
+            updateDisplay();
+            
+            // Set up form handlers
+            $('#add-channel-form').on('submit', addChannel);
+            $('#add-accounts-form').on('submit', addAccounts);
+            $('#add-proxies-form').on('submit', addProxies);
+            $('#start-boost-form').on('submit', startBoost);
+            
+            // Add real-time validation for subscribers input
+            $('#total-subscribers').on('input', function() {
+                const value = $(this).val();
+                const numValue = parseInt(value);
+                
+                if (value && !isNaN(numValue)) {
+                    if (numValue < 500) {
+                        $(this).addClass('is-invalid');
+                        $(this).removeClass('is-valid');
+                    } else if (numValue > 10000) {
+                        $(this).addClass('is-invalid');
+                        $(this).removeClass('is-valid');
+                    } else {
+                        $(this).addClass('is-valid');
+                        $(this).removeClass('is-invalid');
+                    }
+                } else {
+                    $(this).removeClass('is-valid is-invalid');
+                }
+            });
+        });
+
+        // Load data from localStorage
+        function loadData() {
+            channels = JSON.parse(localStorage.getItem('youtube_channels') || '[]');
+            accounts = JSON.parse(localStorage.getItem('youtube_accounts') || '[]');
+            proxies = JSON.parse(localStorage.getItem('youtube_proxies') || '[]');
+            history = JSON.parse(localStorage.getItem('youtube_history') || '[]');
+            calculateStats();
+        }
+
+        // Save data to localStorage
+        function saveData() {
+            localStorage.setItem('youtube_channels', JSON.stringify(channels));
+            localStorage.setItem('youtube_accounts', JSON.stringify(accounts));
+            localStorage.setItem('youtube_proxies', JSON.stringify(proxies));
+            localStorage.setItem('youtube_history', JSON.stringify(history));
+        }
+
+        // Calculate statistics
+        function calculateStats() {
+            stats.total_boosts = history.length;
+            stats.completed_boosts = history.filter(h => h.status === 'completed').length;
+            stats.pending_boosts = history.filter(h => h.status === 'pending').length;
+            stats.total_subscribers_boosted = history
+                .filter(h => h.status === 'completed')
+                .reduce((sum, h) => sum + h.subscribers_added, 0);
+        }
+
+        // Update display
+        function updateDisplay() {
+            updateChannelsTable();
+            updateAccountsTable();
+            updateProxiesTable();
+            updateBoostChannelSelect();
+            updateStatsDisplay();
+            updateProgressBar();
+        }
+
+        // Update channels table
+        function updateChannelsTable() {
+            const tbody = $('#channels-table');
+            tbody.empty();
+            
+            if (channels.length === 0) {
+                tbody.append(`
+                    <tr>
+                        <td colspan="5" class="text-center text-muted">
+                            <i class="fas fa-info-circle me-2"></i>
+                            لا توجد قنوات مضافة بعد
+                        </td>
+                    </tr>
+                `);
+                $('#channels-count').text('0 قناة');
+                return;
+            }
+
+            channels.forEach((channel, index) => {
+                const statusBadge = channel.is_active ? 
+                    '<span class="badge bg-success">نشط</span>' : 
+                    '<span class="badge bg-danger">غير نشط</span>';
+                
+                const row = `
+                    <tr>
+                        <td>
+                            <strong>${channel.title || `قناة ${index + 1}`}</strong>
+                        </td>
+                        <td>
+                            <code>${channel.channel_id}</code>
+                        </td>
+                        <td>${channel.current_subscribers.toLocaleString()}</td>
+                        <td>${statusBadge}</td>
+                        <td>
+                            <button class="btn btn-sm btn-danger" onclick="deleteChannel(${channel.id})">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                `;
+                tbody.append(row);
+            });
+            
+            $('#channels-count').text(`${channels.length} قناة`);
+        }
+
+        // Update accounts table
+        function updateAccountsTable() {
+            const tbody = $('#accounts-table');
+            tbody.empty();
+            
+            if (accounts.length === 0) {
+                tbody.append(`
+                    <tr>
+                        <td colspan="3" class="text-center text-muted">
+                            <i class="fas fa-info-circle me-2"></i>
+                            لا توجد حسابات مضافة بعد
+                        </td>
+                    </tr>
+                `);
+                $('#accounts-count').text('0 حساب');
+                return;
+            }
+
+            accounts.forEach((account, index) => {
+                const statusBadge = account.is_active ? 
+                    '<span class="badge bg-success">نشط</span>' : 
+                    '<span class="badge bg-danger">غير نشط</span>';
+                
+                const row = `
+                    <tr>
+                        <td>${account.email}</td>
+                        <td>${statusBadge}</td>
+                        <td>
+                            <button class="btn btn-sm btn-danger" onclick="deleteAccount(${index})">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                `;
+                tbody.append(row);
+            });
+            
+            $('#accounts-count').text(`${accounts.length} حساب`);
+        }
+
+        // Update proxies table
+        function updateProxiesTable() {
+            const tbody = $('#proxies-table');
+            tbody.empty();
+            
+            if (proxies.length === 0) {
+                tbody.append(`
+                    <tr>
+                        <td colspan="3" class="text-center text-muted">
+                            <i class="fas fa-info-circle me-2"></i>
+                            لا توجد بروكسيات مضافة بعد
+                        </td>
+                    </tr>
+                `);
+                $('#proxies-count').text('0 بروكسي');
+                return;
+            }
+
+            proxies.forEach((proxy, index) => {
+                const statusBadge = proxy.is_working ? 
+                    '<span class="badge bg-success">يعمل</span>' : 
+                    '<span class="badge bg-danger">لا يعمل</span>';
+                
+                const row = `
+                    <tr>
+                        <td>
+                            <code>${proxy.host}:${proxy.port}</code>
+                            ${proxy.username ? `<br><small class="text-muted">${proxy.username}</small>` : ''}
+                        </td>
+                        <td>${statusBadge}</td>
+                        <td>
+                            <button class="btn btn-sm btn-danger" onclick="deleteProxy(${index})">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                `;
+                tbody.append(row);
+            });
+            
+            $('#proxies-count').text(`${proxies.length} بروكسي`);
+        }
+
+        // Update boost channel select
+        function updateBoostChannelSelect() {
+            const select = $('#boost-channel-id');
+            select.empty().append('<option value="">اختر القناة</option>');
+            
+            channels.forEach(channel => {
+                select.append(`<option value="${channel.id}">${channel.title || channel.channel_id}</option>`);
+            });
+        }
+
+        // Update stats display
+        function updateStatsDisplay() {
+            $('#total-boosts').text(stats.total_boosts);
+            $('#completed-boosts').text(stats.completed_boosts);
+            $('#pending-boosts').text(stats.pending_boosts);
+            $('#total-subscribers').text(stats.total_subscribers_boosted.toLocaleString());
+        }
+
+        // Update progress bar
+        function updateProgressBar() {
+            if (!currentBoost) {
+                $('#progress-bar').css('width', '0%').text('0%');
+                $('#progress-text').text('لا توجد عمليات جارية');
+                $('#current-subscribers').text('0');
+                $('#target-subscribers').text('0');
+                $('#added-subscribers').text('0');
+                return;
+            }
+            
+            const progress = Math.round((currentBoost.subscribers_added / currentBoost.total_subscribers) * 100);
+            $('#progress-bar').css('width', `${progress}%`).text(`${progress}%`);
+            $('#current-subscribers').text(currentBoost.current_subscribers.toLocaleString());
+            $('#target-subscribers').text(currentBoost.total_subscribers.toLocaleString());
+            $('#added-subscribers').text(currentBoost.subscribers_added.toLocaleString());
+            $('#progress-text').text(`جاري إضافة ${currentBoost.subscribers_added} من ${currentBoost.total_subscribers} مشترك`);
+        }
+
+        // Add channel
+        function addChannel(e) {
+            e.preventDefault();
+            
+            const channelId = $('#channel-id').val().trim();
+            const channelName = $('#channel-name').val().trim();
+            
+            if (!channelId) {
+                showAlert('يرجى إدخال معرف القناة', 'warning');
+                return;
+            }
+            
+            // Check if channel already exists
+            if (channels.find(c => c.channel_id === channelId)) {
+                showAlert('هذه القناة موجودة بالفعل', 'warning');
+                return;
+            }
+            
+            const newChannel = {
+                id: Date.now(),
+                channel_id: channelId,
+                title: channelName || `قناة ${channels.length + 1}`,
+                current_subscribers: Math.floor(Math.random() * 50000) + 1000,
+                is_active: true,
+                created_at: new Date().toISOString()
+            };
+            
+            channels.push(newChannel);
+            saveData();
+            loadData();
+            updateDisplay();
+            
+            $('#channel-id').val('');
+            $('#channel-name').val('');
+            showAlert('تم إضافة القناة بنجاح!', 'success');
+        }
+
+        // Add accounts
+        function addAccounts(e) {
+            e.preventDefault();
+            
+            const accountsText = $('#accounts-text').val().trim();
+            
+            if (!accountsText) {
+                showAlert('يرجى إدخال الحسابات', 'warning');
+                return;
+            }
+            
+            const lines = accountsText.split('\n').filter(line => line.trim());
+            const accountsToAdd = lines.map(line => {
+                const parts = line.trim().split(':');
+                return {
+                    email: parts[0],
+                    password: parts[1] || '',
+                    is_active: true,
+                    added_at: new Date().toISOString()
+                };
+            });
+            
+            accounts.push(...accountsToAdd);
+            saveData();
+            loadData();
+            updateDisplay();
+            
+            $('#accounts-text').val('');
+            showAlert(`تم إضافة ${accountsToAdd.length} حساب بنجاح!`, 'success');
+        }
+
+        // Add proxies
+        function addProxies(e) {
+            e.preventDefault();
+            
+            const proxiesText = $('#proxies-text').val().trim();
+            
+            if (!proxiesText) {
+                showAlert('يرجى إدخال البروكسيات', 'warning');
+                return;
+            }
+            
+            const lines = proxiesText.split('\n').filter(line => line.trim());
+            const proxiesToAdd = lines.map(line => {
+                const parts = line.trim().split(':');
+                return {
+                    host: parts[0],
+                    port: parts[1] || '8080',
+                    username: parts[2] || null,
+                    password: parts[3] || null,
+                    is_working: true,
+                    added_at: new Date().toISOString()
+                };
+            });
+            
+            proxies.push(...proxiesToAdd);
+            saveData();
+            loadData();
+            updateDisplay();
+            
+            $('#proxies-text').val('');
+            showAlert(`تم إضافة ${proxiesToAdd.length} بروكسي بنجاح!`, 'success');
+        }
+
+        // Start boost
+        function startBoost(e) {
+            e.preventDefault();
+            
+            const channelId = parseInt($('#boost-channel-id').val());
+            const totalSubscribersInput = $('#total-subscribers').val();
+            const totalSubscribers = parseInt(totalSubscribersInput);
+            const boostSpeed = $('#boost-speed').val();
+            const useProxy = $('#use-proxy').is(':checked');
+            const useAccounts = $('#use-accounts').is(':checked');
+            
+            // Check if channel is selected
+            if (!channelId || isNaN(channelId)) {
+                showAlert('يرجى اختيار قناة', 'warning');
+                return;
+            }
+            
+            // Check if subscribers number is valid
+            if (!totalSubscribersInput || totalSubscribersInput.trim() === '') {
+                showAlert('يرجى إدخال عدد المشتركين', 'warning');
+                return;
+            }
+            
+            if (isNaN(totalSubscribers) || totalSubscribers <= 0) {
+                showAlert('يرجى إدخال رقم صحيح للمشتركين', 'warning');
+                return;
+            }
+            
+            if (totalSubscribers < 500) {
+                showAlert('الحد الأدنى للمشتركين هو 500', 'warning');
+                return;
+            }
+            
+            if (totalSubscribers > 10000) {
+                showAlert('الحد الأقصى للمشتركين هو 10000', 'warning');
+                return;
+            }
+            
+            const channel = channels.find(c => c.id === channelId);
+            if (!channel) {
+                showAlert('القناة غير موجودة', 'error');
+                return;
+            }
+            
+            if (useAccounts && accounts.length === 0) {
+                showAlert('لا توجد حسابات مضافة. يرجى إضافة حسابات أولاً', 'warning');
+                return;
+            }
+            
+            if (useProxy && proxies.length === 0) {
+                showAlert('لا توجد بروكسيات مضافة. يرجى إضافة بروكسيات أولاً', 'warning');
+                return;
+            }
+            
+            // Create boost record
+            currentBoost = {
+                id: Date.now(),
+                channel_id: channelId,
+                total_subscribers: totalSubscribers,
+                subscribers_added: 0,
+                current_subscribers: channel.current_subscribers,
+                status: 'running',
+                speed: boostSpeed,
+                use_proxy: useProxy,
+                use_accounts: useAccounts,
+                started_at: new Date().toISOString()
+            };
+            
+            // Add to history
+            history.push({...currentBoost});
+            saveData();
+            loadData();
+            updateDisplay();
+            
+            // Start the boost process
+            startBoostProcess();
+            
+            showAlert(`تم بدء عملية التزويد لـ ${totalSubscribers} مشترك!`, 'success');
+        }
+
+        // Start boost process
+        function startBoostProcess() {
+            if (!currentBoost) return;
+            
+            const speedMultiplier = {
+                'slow': 3,
+                'medium': 2,
+                'fast': 1
+            };
+            
+            const interval = speedMultiplier[currentBoost.speed] * 1000; // seconds
+            
+            boostInterval = setInterval(() => {
+                if (!currentBoost || currentBoost.subscribers_added >= currentBoost.total_subscribers) {
+                    stopBoost();
+                    return;
+                }
+                
+                // Simulate adding subscribers
+                const increment = Math.floor(Math.random() * 10) + 1;
+                currentBoost.subscribers_added = Math.min(
+                    currentBoost.subscribers_added + increment,
+                    currentBoost.total_subscribers
+                );
+                
+                updateProgressBar();
+                
+                // Update history
+                const historyItem = history.find(h => h.id === currentBoost.id);
+                if (historyItem) {
+                    historyItem.subscribers_added = currentBoost.subscribers_added;
+                }
+                saveData();
+                
+            }, interval);
+        }
+
+        // Stop boost
+        function stopBoost() {
+            if (boostInterval) {
+                clearInterval(boostInterval);
+                boostInterval = null;
+            }
+            
+            if (currentBoost) {
+                currentBoost.status = 'completed';
+                currentBoost.completed_at = new Date().toISOString();
+                
+                // Update channel subscriber count
+                const channel = channels.find(c => c.id === currentBoost.channel_id);
+                if (channel) {
+                    channel.current_subscribers += currentBoost.subscribers_added;
+                }
+                
+                // Update history
+                const historyItem = history.find(h => h.id === currentBoost.id);
+                if (historyItem) {
+                    historyItem.status = 'completed';
+                    historyItem.subscribers_added = currentBoost.subscribers_added;
+                    historyItem.completed_at = currentBoost.completed_at;
+                }
+                
+                saveData();
+                loadData();
+                updateDisplay();
+                
+                showAlert(`تم إكمال عملية التزويد! تم إضافة ${currentBoost.subscribers_added} مشترك`, 'success');
+                currentBoost = null;
+            }
+        }
+
+        // Test proxies
+        function testProxies() {
+            if (proxies.length === 0) {
+                showAlert('لا توجد بروكسيات للاختبار', 'warning');
+                return;
+            }
+            
+            showAlert('جاري اختبار البروكسيات...', 'info');
+            
+            setTimeout(() => {
+                // Simulate testing
+                proxies.forEach(proxy => {
+                    proxy.is_working = Math.random() > 0.3; // 70% success rate
+                });
+                
+                saveData();
+                loadData();
+                updateDisplay();
+                
+                const workingCount = proxies.filter(p => p.is_working).length;
+                showAlert(`تم اختبار ${proxies.length} بروكسي، ${workingCount} يعمل`, 'info');
+            }, 3000);
+        }
+
+        // Delete functions
+        function deleteChannel(id) {
+            if (confirm('هل أنت متأكد من حذف هذه القناة؟')) {
+                channels = channels.filter(c => c.id !== id);
+                saveData();
+                loadData();
+                updateDisplay();
+                showAlert('تم حذف القناة بنجاح!', 'success');
+            }
+        }
+
+        function deleteAccount(index) {
+            if (confirm('هل أنت متأكد من حذف هذا الحساب؟')) {
+                accounts.splice(index, 1);
+                saveData();
+                loadData();
+                updateDisplay();
+                showAlert('تم حذف الحساب بنجاح!', 'success');
+            }
+        }
+
+        function deleteProxy(index) {
+            if (confirm('هل أنت متأكد من حذف هذا البروكسي؟')) {
+                proxies.splice(index, 1);
+                saveData();
+                loadData();
+                updateDisplay();
+                showAlert('تم حذف البروكسي بنجاح!', 'success');
+            }
+        }
+
+        // Show alert
+        function showAlert(message, type) {
+            const alertClass = `alert-${type}`;
+            const alert = $(`
+                <div class="alert ${alertClass} alert-dismissible fade show position-fixed" 
+                     style="top: 20px; right: 20px; z-index: 9999; min-width: 300px;">
+                    ${message}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+            `);
+            
+            $('body').append(alert);
+            
+            setTimeout(() => {
+                alert.alert('close');
+            }, 5000);
+        }
+    </script>
+</body>
+</html>
